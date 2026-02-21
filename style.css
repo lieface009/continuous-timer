@@ -324,6 +324,8 @@ body::before {
   background: rgba(16, 19, 28, 0.95);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--glass-border);
+  /* Android ナビゲーションバー（△○□）の分正確に予白を確保 */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .list-panel-header {
@@ -367,14 +369,16 @@ body::before {
 }
 
 .timer-list-body.open {
-  /* 画面の高さに応じて最大高さを制限し、フッターが埋まらないようにする */
-  max-height: min(40vh, 260px);
+  /* 30vh or 200px の小さいに制限 → Android ナビバーやアドレスバーの分のスペースを多目に確保 */
+  max-height: min(30vh, 200px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .preset-list {
   list-style: none;
-  padding: var(--space-xs) var(--space-sm) var(--space-md);
+  /* safe-area-inset-bottom + 60px を下余白に追加してナビバーの下に隠れないようにする */
+  padding: var(--space-xs) var(--space-sm) calc(60px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   gap: 6px;
