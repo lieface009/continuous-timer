@@ -369,8 +369,8 @@ body::before {
 }
 
 .timer-list-body.open {
-  /* 30vh or 200px の小さいに制限 → Android ナビバーやアドレスバーの分のスペースを多目に確保 */
-  max-height: min(30vh, 200px);
+  /* 3.5個分（約260px）見えるように高さを広げる */
+  max-height: min(45vh, 260px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -783,6 +783,38 @@ body::before {
   overflow-y: auto;
   padding: var(--space-lg);
   animation: fadeUp 0.25s ease;
+}
+
+@media (max-width: 480px) {
+  .modal-dialog {
+    width: 95%;
+    max-height: 90vh;
+  }
+}
+
+/* スマホ向け：太くて押しやすいスクロールバー（WebKit対応ブラウザ用） */
+.timer-list-body::-webkit-scrollbar {
+  width: 14px;
+  /* 指でも押しやすい太さ */
+}
+
+.timer-list-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.timer-list-body::-webkit-scrollbar-thumb {
+  background: rgba(108, 92, 231, 0.6);
+  /* 紫色でわかりやすく */
+  border-radius: 8px;
+  border: 3px solid rgba(16, 19, 28, 0.95);
+  /* 背景色と同じボーダーで余白を作る */
+}
+
+.timer-list-body::-webkit-scrollbar-thumb:active {
+  background: rgba(108, 92, 231, 0.9);
+  /* 押しているときは濃く */
 }
 
 .modal-dialog-header {
