@@ -369,8 +369,8 @@ body::before {
 }
 
 .timer-list-body.open {
-  /* 3.5個分（約260px）見えるように高さを広げる */
-  max-height: min(45vh, 260px);
+  /* 5個分（約360px）見えるように高さを広げる */
+  max-height: min(55vh, 360px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -388,14 +388,15 @@ body::before {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 12px;
+  background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--trans-fast);
   min-height: 56px;
-  touch-action: none;
+  /* スマホでの上下スワイプ（スクロール）を許可し、ドラッグを阻害しない */
+  touch-action: pan-y;
 }
 
 .preset-item:hover,
@@ -419,12 +420,14 @@ body::before {
   box-shadow: var(--shadow-lg);
 }
 
+/* ===== Drag Handle ===== */
 .drag-handle {
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: grab;
   padding: 4px;
-  flex-shrink: 0;
+  user-select: none;
+  /* ハンドル部分のみ縦横のスワイプを無効化し、ドラッグイベントを発火させる */
   touch-action: none;
 }
 
