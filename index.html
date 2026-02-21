@@ -25,9 +25,12 @@
         <header class="app-header">
             <h1 class="app-title">⏱ 連続タイマー君</h1>
             <div class="header-right">
+                <!-- ＋追加・保存をヘッダーに配置 -->
+                <button id="btn-add" class="icon-btn add-btn" title="タイマーを追加">＋</button>
+                <button id="btn-save" class="icon-btn" title="保存">💾</button>
                 <button id="btn-settings" class="icon-btn" title="設定">⚙️</button>
                 <button id="btn-data" class="icon-btn" title="データ操作">📦</button>
-                <button id="btn-dashboard" class="icon-btn" title="ダッシュボード">�</button>
+                <button id="btn-dashboard" class="icon-btn" title="ダッシュボード">📊</button>
             </div>
         </header>
 
@@ -35,7 +38,7 @@
         <main class="timer-main" id="timer-main">
             <div class="empty-hint" id="empty-hint">
                 <span>⏳</span>
-                下の「＋ 追加」でタイマーを作れます
+                右上の「＋」でタイマーを追加できます
             </div>
         </main>
 
@@ -52,12 +55,6 @@
                 <ul class="preset-list" id="preset-list"></ul>
             </div>
         </section>
-
-        <!-- ===== Footer ===== -->
-        <footer class="app-footer">
-            <button class="footer-btn footer-btn-add" id="btn-add">＋ 追加</button>
-            <button class="footer-btn" id="btn-save">� 保存</button>
-        </footer>
 
     </div>
 
