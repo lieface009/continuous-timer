@@ -88,8 +88,11 @@ body::before {
   z-index: 1;
   display: flex;
   flex-direction: column;
+  /* dvh = dynamic viewport height: アドレスバーを除いた実際の高さ */
   height: 100dvh;
-  height: 100vh;
+  min-height: 100vh;
+  /* dvh 非対応ブラウザ向けフォールバック */
+  max-height: 100dvh;
   overflow: hidden;
 }
 
@@ -132,6 +135,8 @@ body::before {
   padding: var(--space-md);
   overflow: hidden;
   position: relative;
+  min-height: 0;
+  /* flexで潰れないよう確保 */
 }
 
 .empty-hint {
@@ -347,7 +352,8 @@ body::before {
 }
 
 .timer-list-body.open {
-  max-height: 45vh;
+  /* 画面の高さに応じて最大高さを制限し、フッターが埋まらないようにする */
+  max-height: min(40vh, 260px);
   overflow-y: auto;
 }
 
