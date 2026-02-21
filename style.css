@@ -377,8 +377,8 @@ body::before {
 
 .preset-list {
   list-style: none;
-  /* safe-area-inset-bottom + 60px を下余白に追加してナビバーの下に隠れないようにする */
-  padding: var(--space-xs) var(--space-sm) calc(60px + env(safe-area-inset-bottom, 0px));
+  /* safe-area-inset-bottom + 90px を下余白に追加してナビバーの下に隠れないようにする */
+  padding: var(--space-xs) var(--space-sm) calc(90px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   gap: 6px;
