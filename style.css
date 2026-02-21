@@ -324,8 +324,8 @@ body::before {
   background: rgba(16, 19, 28, 0.95);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--glass-border);
-  /* 閉じた時でもAndroidナビバー（△○□）に隠れないように最低30px確保 */
-  padding-bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+  /* 閉じた時でもAndroidナビバー（△○□）に隠れないようにさらに15px（計45px）確保 */
+  padding-bottom: calc(45px + env(safe-area-inset-bottom, 0px));
 }
 
 .list-panel-header {
